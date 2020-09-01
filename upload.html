@@ -1,0 +1,155 @@
+<html>
+  <head>
+    <title>The Renal Project - Articles & Blogs Upload</title>
+  </head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <link
+    rel="shortcut icon"
+    href="./assets/logo & favicon/favicon.png"
+    type="image/x-icon"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      font-family: "montserrat", Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .head {
+      margin-top: 3rem;
+    }
+
+    form {
+      margin: 2% 15%;
+    }
+
+    @media (max-width: 767px) {
+      form {
+        margin: 5%;
+      }
+    }
+  </style>
+
+  <body>
+    <button
+      class="btn btn-danger m-3 go-back"
+      style="font-family: 'montserrat'"
+    >
+      Go Back
+    </button>
+
+    <h1 class="head text-center">Write Your Words</h1>
+
+    <form
+      class="jumbotron"
+      method="POST"
+      action="./php/blog_upload.php"
+      enctype="multipart/form-data"
+    >
+      <div class="form-group">
+        <label for="exampleInputName1">Writer's Name *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputName1"
+          name="name"
+          required
+          autofocus
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputDesignation1">Writer's Designation *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputDesignation1"
+          name="designation"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address *</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          name="email"
+          required
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="profilepic">Upload Your Image * </label>
+        <input type="file" name="profilepic" id="profilepic" required />
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="exampleInputHeadline1">Article Headline *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputHeadline1"
+          name="headline"
+          required
+        />
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="articleimage">Upload Article Image * </label>
+        <input type="file" name="articleimage" id="articleimage" required />
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="exampleInputContent1">Article Content *</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="exampleInputContent1"
+          name="articlecontent"
+          rows="20"
+          cols="30"
+          required
+        ></textarea>
+      </div>
+
+      <br />
+
+      <button type="submit" class="btn btn-dark m-3" name="submit">
+        Submit
+      </button>
+      <button type="reset" class="btn btn-secondary m-3">Reset</button>
+      <button type="button" class="btn btn-danger m-3 go-back">Cancel</button>
+    </form>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(".go-back").click(() => {
+        if (confirm("Are sure you want to go back?")) {
+          window.open("./php/blog_section.php", "_self");
+        }
+      });
+    </script>
+  </body>
+</html>
