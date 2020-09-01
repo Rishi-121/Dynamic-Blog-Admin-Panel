@@ -12,7 +12,7 @@ It is a simple blog application with an admin panel. It based on _CRUD(Create,Re
 * *JavaScript with jQuery library*
 * *PHP 7*
 * *MySQL Databse Connectivity*
-* *Some Coffee ☕
+* *Some Coffee ☕*
 
 ## Usage Instructions:-
 
