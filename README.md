@@ -13,3 +13,8 @@ It is a simple blog application with an admin panel. It based on _CRUD(Create,Re
 * *PHP 7*
 * *MySQL Databse Connectivity*
 
+## Usage Instructions:-
+
+* 1) Import _renal_project.sql_ file in your _phpMyAdmin_
+
+
