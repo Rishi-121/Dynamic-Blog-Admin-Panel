@@ -2,7 +2,7 @@
 
 ## Description:-
 
-It is a simple blog application with admin panel. It based on _CRUD(Create,Read,Update,Delete)_ operation. Admin can see, add, edit,delete the blog. 
+It is a simple blog application with an admin panel. It based on _CRUD(Create,Read,Update,Delete)_ operation. Admin can see, add, edit,delete the blog. 
 
 ## Technology Stack:-
 
