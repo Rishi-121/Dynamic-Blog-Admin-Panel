@@ -15,7 +15,7 @@ It is a simple blog application with an admin panel. It based on _CRUD(Create,Re
 
 ## Usage Instructions:-
 
-* Import _renal_project.sql_ file in your _phpMyAdmin_.
+* Import _renal_project.sql_ file in your _phpMyAdmin_. <br />
   **Note:- If you face any collation error like " Unknown collation: ‘utf8mb4_0900_ai_ci‘” " then kindly do this.**
     * Open the renal_project.sql file in text editor and hit CTRL+H to find and replace the string “utf8mb4_0900_ai_ci” and replaced it with “utf8mb4_general_ci“.
 
