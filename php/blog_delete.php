@@ -1,23 +1,19 @@
 <?php
 
-session_start();
-
 require '../php/connection.php';
+$id = $_GET["id"];
 
-$id = $_SESSION['id'];
-echo "$id";
+$query = mysqli_query($con,  "SELECT * FROM `articles_blogs` WHERE `id`='$id'");
 
-$delete = mysqli_query($con, "DELETE FROM `articles_blogs` WHERE `id`='$id'");
+if (mysqli_num_rows($query) == 1) {
+    $delete = mysqli_query($con, "DELETE FROM `articles_blogs` WHERE `id`='$id'");
 
-if ($delete == true) {
-    session_destroy();
 ?>
 
     <script>
         alert("Article deleted successfully!");
-        // window.open("../php/blog_section.php", '_self');
+        window.open("../php/blog_section.php", '_self');
     </script>
 
 <?php
-
 }

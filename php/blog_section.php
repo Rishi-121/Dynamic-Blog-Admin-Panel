@@ -48,6 +48,7 @@
     session_start();
 
     require '../php/connection.php';
+
     if ($con == false) {
         echo "Error in database connection!!";
     } else {
@@ -57,15 +58,15 @@
         while ($row = mysqli_fetch_assoc($query)) {
             echo '
                  
-            <div class="container shadow rounded">
+                   
+            <div class="container shadow" style="padding:5%;">
                 <div class="row">
                   <div class="col-lg-2 col-md-3">
-                    <img class="article-writer" src="' . $row["profile pic"] . '" alt="" />
+                    <img class="article-writer" src=" ' . $row["profile pic"] . ' " alt="" />
                   </div>
                   <div class="writer-details col-lg-10 col-md-9">
-                    <h4>' . $row["name"] . '</h4>
-                    <h6>' . $row["work_designation"] . '</h6>
-                    <small class="text-muted"><em>' . $row["emailid"] . '</em></small>
+                    <h4 class="mb-2">' . $row["name"] . '</h4>
+                    <small class="text-muted"><em>' . $row["article_upload_date_time"] . '</em></small>
                   </div>
                 </div>
                 <h2 style="margin-top:3rem;">
@@ -73,43 +74,41 @@
                 </h2>
                 <img
                   class="article-image m-3"
-                  src="' . $row["article_image"] . '"
+                  src=" ' . $row["article_image"] . ' "
                 />
-                <p class="article-text mt-3" style="font-family:sans-serif;">
+                <p class="article-text mt-3">
                  ' . $row["article_content"] . '
                 </p>
 
                 <hr/>
 
-                <button type="button" class="btn btn-dark edit mr-3" onclick=" blogEdit(' .  $row['id'] . '); ">Edit</button>
+                <a href="../php/blog_edit.php?id=' . $row['id'] . '" type="button" class="btn btn-dark edit mr-3 text-white">Edit</a>
 
-                <button type="button" class="btn btn-danger delete" onclick=" blogDelete(' . $row['id'] . '); ">Delete</button> 
+                <a href="#" type="button" class="btn btn-danger delete text-white">Delete</a>
 
-                </div>
+                '; ?>
 
-                <hr /> ';
-        } ?>
-
-        <script>
-            function blogEdit(id) {
-                <?php
-                $_SESSION['id'] = "?>document.write(id)<?php";
-                echo $_SESSION['id'];
-                ?>
-                // window.open('../php/blog_edit.php', '_self');
-            }
-
-            function blogDelete(id) {
-                <?php
-                $_SESSION['id'] = "<script>document.write(id)</script>";
-                ?>
-                window.open('../php/blog_delete.php', '_self');
-            }
-        </script>
+            <script>
+                $('.delete').click(() => {
+                    if (confirm("Are you sure?")) {
+                        $('.delete').attr("href", "../php/blog_delete.php?id=<?php echo $row['id']; ?>");
+                    }
+                })
+            </script>
 
     <?php
 
+
+            // <a href="../php/blog_delete.php?id=' . $row['id'] . '" type="button" class="btn btn-danger delete text-white">Delete</a>
+
+            echo '</div>
+
+                <hr />
+                
+                ';
+        }
     }
+
 
     ?>
 

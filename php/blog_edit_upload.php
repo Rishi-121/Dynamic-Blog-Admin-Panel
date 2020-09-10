@@ -1,10 +1,10 @@
 <?php
-session_start();
+
 if (isset($_POST['submit'])) {
 
     require '../php/connection.php';
 
-    $id = $_SESSION["id"];
+    $id = $_GET["id"];
 
     $name = $_POST['name'];
     $designation = $_POST['designation'];
@@ -26,14 +26,12 @@ if (isset($_POST['submit'])) {
         move_uploaded_file($articleImage, $articleImageDestination);
 
         $update = "UPDATE `articles_blogs` SET `name`='$name', `emailid`='$email' , `work_designation`='$designation',`profile pic`='$profilePicDestination',`article_headline`='$headLine',`article_content`='$articleContent',`article_image`='$articleImageDestination' WHERE `id`='$id'";
-        $update = mysqli_query($con, $update);
-        if ($update == true) {
-
-            session_destroy();
+        $row = mysqli_query($con, $update);
+        if ($row == true) {
 
 ?>
             <script>
-                alert('Article updated successfully!');
+                alert('Article updated Successfully!');
                 window.open('../php/blog_section.php', '_self');
             </script>
 

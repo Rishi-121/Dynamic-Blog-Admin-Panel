@@ -1,14 +1,8 @@
 <?php
 
-session_start();
-
 require '../php/connection.php';
 
-$id = $_SESSION["id"];
-
-?>
-
-<?php
+$id = $_GET["id"];
 
 $query = mysqli_query($con,  "SELECT * FROM `articles_blogs` WHERE `id`='$id'");
 
@@ -25,7 +19,7 @@ if (mysqli_num_rows($query) == 1) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
-        
+
         <link rel="shortcut icon" href="../assets/logo & favicon/favicon.png" type="image/x-icon" />
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
@@ -61,7 +55,7 @@ if (mysqli_num_rows($query) == 1) {
 
         <h1 class="head text-center">Always Try to Learn from Your Mistakes</h1>
 
-        <form class="jumbotron" method="POST" action="../php/blog_edit_upload.php" enctype="multipart/form-data">
+        <form class="jumbotron" method="POST" action="../php/blog_edit_upload.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleInputName1">Writer's Name *</label>
                 <input type="text" class="form-control" id="exampleInputName1" name="name" value="<?php echo $data['name']; ?>" required autofocus />
@@ -115,15 +109,10 @@ if (mysqli_num_rows($query) == 1) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <script>
-        $(".go-back").click(() => {
+        $('.go-back').click(() => {
             if (confirm("Are sure you want to go back?")) {
-                <?php session_destroy(); ?>
                 window.open("../php/blog_section.php", "_self");
             }
-        })
-
-        $(".update").click(() => {
-            if (confirm("Please confirm your submission!")) {}
         })
     </script>
 
